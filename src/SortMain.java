@@ -10,7 +10,7 @@ public class SortMain {
 		System.out.println("ソート前");
 		arrayOperator.printArray();
 		ScriptingContainer container = new ScriptingContainer();
-		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "bubblesort.rb");
+		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/bubblesort.rb");
 		System.out.println("バブルソート");
 		container.callMethod(r.getCurrentContext(), "sort", arrayOperator);
 		System.out.println(arrayOperator.checkArray());
@@ -20,7 +20,7 @@ public class SortMain {
 		arrayOperator.initArray();
 		container = new ScriptingContainer();
 		System.out.println("選択ソート");
-		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "selectionsort.rb");
+		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/selectionsort.rb");
 		container.callMethod(r.getCurrentContext(), "sort", arrayOperator);
 		System.out.println(arrayOperator.checkArray());
 		arrayOperator.printArray();

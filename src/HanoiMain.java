@@ -6,7 +6,7 @@ public class HanoiMain {
 
 	public void hanoiMain(Ruby r) {
 		ScriptingContainer container = new ScriptingContainer();
-		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "hanoi.rb");
+		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/hanoi.rb");
 		Hanoi tower = new Hanoi();
 		tower.printTower();
 		container.callMethod(r.getCurrentContext(), "hanoi", tower, 5);
