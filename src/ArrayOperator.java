@@ -1,15 +1,18 @@
 import java.util.Random;
 
 public class ArrayOperator {
-	private int array[];
-	private int initArray[];
-	private int count = 0;
+	private int array[];		
+	private int initArray[];	//init用
+	private int count = 0;		//交換回数
+	
 	public ArrayOperator(){
-		array = new int[80];
-		initArray = new int[80];
+		array = new int[20];
+		initArray = new int[20];
 		for(int i = 0; i < array.length; i++){
-			array[i] = i / 8;
+			array[i] = i ;
 		}
+		
+		//ランダムに
 		Random r = new Random();
 		for(int i = 0; i < 200; i++){
 			this.exchange(r.nextInt(array.length), r.nextInt(array.length));
@@ -27,7 +30,7 @@ public class ArrayOperator {
 		count = 0;
 	}
 	
-	public boolean compare(int i, int j){
+	public boolean compare(int i, int j){	//比較
 		if(array[i] >= array[j]){
 			return true;
 		}else{
@@ -35,7 +38,7 @@ public class ArrayOperator {
 		}
 	}
 	
-	public void exchange(int i, int j){
+	public void exchange(int i, int j){		//交換
 		int c = array[i];
 		array[i] = array[j];
 		array[j] = c;
@@ -57,9 +60,9 @@ public class ArrayOperator {
 		System.out.println(count);
 	}
 	
-	public boolean chackArray(){
+	public boolean checkArray(){				//ソートされているか
 		for(int i = 0; i < array.length; i++){
-			if(array[i] != i / 8){
+			if(array[i] != i){
 				return false;
 			}
 		}
