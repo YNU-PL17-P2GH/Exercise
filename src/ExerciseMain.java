@@ -11,8 +11,12 @@ public class ExerciseMain {
 		//(new HanoiMain()).hanoiMain(r);
 		//サーチ
 		//(new SearchMain()).searchMain(r);
+		//ナイトのツアー
+		(new KnightMain()).knightMain(r);
+		
+		
 		//ハローワールド
-		(new HelloRubyMain()).helloRubyMain(r);
+		//(new HelloRubyMain()).helloRubyMain(r);
 	}
 
 }
