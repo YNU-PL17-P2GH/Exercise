@@ -10,7 +10,9 @@ public class ExerciseMain {
 		//ハノイ
 		//(new HanoiMain()).hanoiMain(r);
 		//サーチ
-		(new SearchMain()).searchMain(r);
+		//(new SearchMain()).searchMain(r);
+		//ハローワールド
+		(new HelloRubyMain()).helloRubyMain(r);
 	}
 
 }
