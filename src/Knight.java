@@ -21,7 +21,7 @@ public class Knight {
 	public void nextBoard(){
 		x = 0;
 		y = 0;
-		board = new int[5][5];
+		board = new int[10][10];
 		for(int i = 0; i < board.length; i++){
 			for(int j = 0; j < board[i].length; j++){
 				board[i][j] = 0;
@@ -46,7 +46,7 @@ public class Knight {
 		y = y + direct[d][1];
 		x = x + direct[d][0];
 		//System.out.println(x + " " + y + " "+ d);
-		printBoard();
+		//printBoard();
 		return true;
 	}
 

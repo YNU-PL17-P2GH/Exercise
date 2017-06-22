@@ -3,12 +3,12 @@ def tour(knight)
 end
 
 def tourSub(knight, n)
-  if n ==24 then
+  if n ==99 then
     return true
   end
   Array nextJumps = getNextJumps(knight)
-  p nextJumps
-  p nextJumps.length
+  #p nextJumps
+  #p nextJumps.length
   Integer i = 0
   while i < nextJumps.length
     if knight.move(nextJumps[i]) then
@@ -37,6 +37,8 @@ def getNextJumps(knight)
     end
     i = i + 1
   end
+  #p canMove
+  #p index
   i = 0
   Integer j = 0
   Integer c = 0
@@ -45,7 +47,7 @@ def getNextJumps(knight)
     j = i
     min = i
     while j < canMove.length
-      if canMove[min] < canMove[j] then
+      if canMove[min] > canMove[j] then
         min = j
       end
       j = j + 1
@@ -58,7 +60,8 @@ def getNextJumps(knight)
     index[i] = c 
     i = i + 1
   end
-  
+  #p canMove
+  #p index
   Array nextJump = Array.new(count)
   i = 0
   while i < nextJump.length
