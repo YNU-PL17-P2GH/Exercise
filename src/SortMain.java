@@ -1,10 +1,9 @@
 import org.jruby.Ruby;
 import org.jruby.embed.ScriptingContainer;
-import org.jruby.runtime.builtin.IRubyObject;
 
 
 public class SortMain {
-	
+
 	public void sortMain(Ruby r){
 		ArrayOperator arrayOperator = new ArrayOperator();
 		System.out.println("ソート前");
@@ -17,6 +16,9 @@ public class SortMain {
 		arrayOperator.printArray();
 		arrayOperator.printCount();
 		
+		//メソッドの未定義化(問題があるかは不明だが除去しておいた方が無難な気がする)
+		container.runScriptlet("undef sort\n");
+
 		arrayOperator.initArray();
 		container = new ScriptingContainer();
 		System.out.println("選択ソート");

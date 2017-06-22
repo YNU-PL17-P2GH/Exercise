@@ -11,6 +11,14 @@ public class KnightMain {
 		knight.printBoard();
 		container.callMethod(r.getCurrentContext(), "tour", knight);
 		knight.printBoard();
+		
+		container.runScriptlet("undef tour\nundef tourSub\n");
+
+		knight.nextBoard();
+		knight.printBoard();
+		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/greedyknight.rb");
+		container.callMethod(r.getCurrentContext(), "tour", knight);
+		knight.printBoard();
 	}
 
 }

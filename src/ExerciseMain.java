@@ -11,7 +11,7 @@ public class ExerciseMain {
 		//(new HanoiMain()).hanoiMain(r);
 		//サーチ
 		//(new SearchMain()).searchMain(r);
-		//ナイトのツアー
+		//ナイトのツアー未完
 		(new KnightMain()).knightMain(r);
 		
 		

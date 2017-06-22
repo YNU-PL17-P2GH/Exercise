@@ -14,6 +14,9 @@ public class SearchMain {
 		array.printCount();
 		array.printSuccess();
 		
+		//メソッドの未定義可
+		container.runScriptlet("undef search\n");
+		
 		array.initResult();
 		container = new ScriptingContainer();
 		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/binarysearch.rb");
