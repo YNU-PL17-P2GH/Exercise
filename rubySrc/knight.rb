@@ -3,7 +3,7 @@ def tour(knight)
 end
 
 def tourSub(knight, n)
-  if n ==24 then
+  if n == 24 then
     return true
   end
   Integer i = 0

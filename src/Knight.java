@@ -79,6 +79,21 @@ public class Knight {
 		board[ny][nx] = 0;
 		return count;
 	}
+	public boolean canMove(int d){
+		int ny = y + direct[d][1];
+		int nx = x + direct[d][0];
+		if( x + direct[d][0] < 0 || x + direct[d][0] >= board[0].length){
+			return false;
+		}
+		if( y + direct[d][1] < 0 || y + direct[d][1] >= board.length){
+			return false;
+		}
+		if(board[ny][nx] == 1){
+			return false;
+		}
+
+		return true;
+	}
 
 	public void backtrack(int d){
 		//System.out.println(x +" "+ y);
