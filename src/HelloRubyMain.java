@@ -11,5 +11,7 @@ public class HelloRubyMain {
 		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/helloruby.rb");
 		System.out.println("java " +container.callMethod(r.getCurrentContext(), "getStdOut"));
 		container.callMethod(r.getCurrentContext(), "setStdOut");
+		
+		ExerciseMain.undefRubyMethods(container);
 	}
 }

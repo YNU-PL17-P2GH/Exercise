@@ -17,7 +17,9 @@ public class SortMain {
 		arrayOperator.printCount();
 		
 		//メソッドの未定義化(問題があるかは不明だが除去しておいた方が無難な気がする)
-		container.runScriptlet("undef sort\n");
+		//container.runScriptlet("undef sort\n");
+		//container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/methodclear.rb");
+		ExerciseMain.undefRubyMethods(container);
 
 		arrayOperator.initArray();
 		container = new ScriptingContainer();
@@ -27,5 +29,6 @@ public class SortMain {
 		System.out.println(arrayOperator.checkArray());
 		arrayOperator.printArray();
 		arrayOperator.printCount();
+		ExerciseMain.undefRubyMethods(container);
 	}
 }

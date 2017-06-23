@@ -13,10 +13,11 @@ public class SearchMain {
 		array.printTarget();
 		array.printCount();
 		array.printSuccess();
-		
+
 		//メソッドの未定義可
-		container.runScriptlet("undef search\n");
-		
+		//container.runScriptlet("undef search\n");
+		ExerciseMain.undefRubyMethods(container);
+
 		array.initResult();
 		container = new ScriptingContainer();
 		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/binarysearch.rb");
@@ -25,5 +26,6 @@ public class SearchMain {
 		array.printTarget();
 		array.printCount();
 		array.printSuccess();
+		ExerciseMain.undefRubyMethods(container);
 	}
 }

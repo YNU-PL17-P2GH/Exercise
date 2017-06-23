@@ -19,3 +19,4 @@ def tourSub(knight, n)
   end
   return false
 end
+

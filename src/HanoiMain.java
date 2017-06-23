@@ -11,6 +11,8 @@ public class HanoiMain {
 		tower.printTower();
 		container.callMethod(r.getCurrentContext(), "hanoi", tower, 5);
 		tower.printTower();
+
+		ExerciseMain.undefRubyMethods(container);
 	}
 
 }
