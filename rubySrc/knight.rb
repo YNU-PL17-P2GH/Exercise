@@ -8,7 +8,8 @@ def tourSub(knight, n)
   end
   Integer i = 0
   while i < 8
-    if knight.move(i) then
+    if knight.canMove(i) then
+      knight.move(i)
       if tourSub(knight, n + 1) then
         return true
       else

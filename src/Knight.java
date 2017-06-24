@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 
 
@@ -5,6 +7,10 @@ public class Knight {
 	private int[][] direct = {{1, 2}, {2, 1},{2, -1}, {1, -2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}};
 	private int[][] board;
 	private int x, y;
+
+	private boolean failFlag = false;
+	
+	ArrayList<Integer> moveProcess;
 
 	public Knight(){
 		x = 0;
@@ -16,6 +22,7 @@ public class Knight {
 			}
 		}
 		board[y][x] = 1;
+		moveProcess = new ArrayList<Integer>();
 	}
 
 	public void nextBoard(){
@@ -28,18 +35,25 @@ public class Knight {
 			}
 		}
 		board[y][x] = 1;
+		moveProcess = new ArrayList<Integer>();
 	}
 
-	public boolean move(int d){
+	public void move(int d){
 		//System.out.println(x + " " + y + " "+ d);
+		if(failFlag){
+			return;
+		}
 		if( x + direct[d][0] < 0 || x + direct[d][0] >= board[0].length){
-			return false;
+			failFlag = true;
+			return;
 		}
 		if( y + direct[d][1] < 0 || y + direct[d][1] >= board.length){
-			return false;
+			failFlag = true;
+			return;
 		}
 		if(board[y + direct[d][1]][x + direct[d][0]] != 0){
-			return false;
+			failFlag = true;
+			return;
 		}
 
 		board[y + direct[d][1]][x + direct[d][0]] = 1;
@@ -47,7 +61,8 @@ public class Knight {
 		x = x + direct[d][0];
 		//System.out.println(x + " " + y + " "+ d);
 		//printBoard();
-		return true;
+		moveProcess.add(d);
+		return;
 	}
 
 	public int canMoveCount(int d){
@@ -101,6 +116,7 @@ public class Knight {
 		y = y - direct[d][1];
 		x = x - direct[d][0];
 		//printBoard();
+		moveProcess.add(-1);
 	}
 
 	public void printBoard(){
@@ -111,5 +127,10 @@ public class Knight {
 			System.out.println();
 		}
 		System.out.println();
+	}
+	
+	public void printResult(){
+		System.out.println(!failFlag);
+		System.out.println(moveProcess);
 	}
 }

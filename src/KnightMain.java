@@ -11,6 +11,7 @@ public class KnightMain {
 		knight.printBoard();
 		container.callMethod(r.getCurrentContext(), "tour", knight);
 		knight.printBoard();
+		knight.printResult();
 
 		//メソッドの未定義化
 		//container.runScriptlet("undef tour\nundef tourSub\n");
@@ -22,6 +23,7 @@ public class KnightMain {
 		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/greedyknight.rb");
 		container.callMethod(r.getCurrentContext(), "tour", knight);
 		knight.printBoard();
+		knight.printResult();
 
 		
 		//メソッドの未定義化
@@ -33,6 +35,7 @@ public class KnightMain {
 		container.runScriptlet(org.jruby.embed.PathType.RELATIVE, "rubySrc/greedyknight2.rb");
 		container.callMethod(r.getCurrentContext(), "tour", knight);
 		knight.printBoard();
+		knight.printResult();
 		//メソッドの未定義化
 		ExerciseMain.undefRubyMethods(container);
 	}

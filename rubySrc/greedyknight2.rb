@@ -9,7 +9,8 @@ def tourSub(knight, n)
   Array nextJumps = getNextJumps(knight)
   Integer i = 0
   while i < nextJumps.length
-    if knight.move(nextJumps[i]) then
+    if knight.canMove(nextJumps[i]) then
+      knight.move(nextJumps[i])
       if tourSub(knight, n + 1) then
         return true
       else
@@ -28,7 +29,8 @@ def getNextJumps(knight)
   Integer j = 0
   Integer count = 0
   while i < canMoves.length
-    if knight.move(i) then
+    if knight.canMove(i) then
+      knight.move(i)
       canMoves[i] = 0;
       j = 0
       count = count + 1

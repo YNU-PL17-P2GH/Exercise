@@ -13,10 +13,11 @@ public class ExerciseMain {
 		//ハノイ
 		//(new HanoiMain()).hanoiMain(r);
 		//サーチ
-		(new SearchMain()).searchMain(r);
-		//ナイトのツアー未完
-		//(new KnightMain()).knightMain(r);
-
+		//(new SearchMain()).searchMain(r);
+		//ナイトのツアー
+		(new KnightMain()).knightMain(r);
+		//ナップサック
+		//(new KnapsackMain()).knapsackMain(r);
 
 		//ハローワールド
 		//(new HelloRubyMain()).helloRubyMain(r);
