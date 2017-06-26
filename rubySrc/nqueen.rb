@@ -2,19 +2,30 @@ def nqueen(queen)
 	Array direct = [[-1, -1], [0, -1], [1, -1]]
 	Array board = Array.new(8){Array.new(8, 0)}
 	Array place = Array.new(8){Array.new(2)}
-	nqueenSub(direct, board, place, 0)
+  Array answer = []
+	nqueenSub(direct, board, place, 0, answer)
 	Integer i = 0
-	while i < place.length()
-		#p i
-		queen.putQueen(place[i][0], place[i][1])
+
+	#とりあえず一つだけ
+	while i < answer[0].length()
+		#print(answer[1][i][0], " ", answer[1][i][1], "\n")
+		queen.putQueen(answer[1][i][0], answer[1][i][1])
 		i = i + 1
 	end
-	
+
 end
 
-def nqueenSub(direct, board, place, n)
+def nqueenSub(direct, board, place, n, answer)
 	if place.length() == n then
-		return true
+	  Array a = Array.new(8){Array(2)}
+	  Integer k = 0
+	  while k < 8
+	    a[k][0] = place[k][0]
+	    a[k][1] = place[k][1]
+	    k = k + 1
+	  end
+    answer << a
+		return
 	end
 	Integer i = 0
 	Integer j = 0
@@ -45,13 +56,11 @@ def nqueenSub(direct, board, place, n)
 			place[n][1] = n
 			#p board
 			#sleep 2
-			if nqueenSub(direct, board, place, n + 1) then
-				return true
-			end
+			nqueenSub(direct, board, place, n + 1, answer)
 			board[n][j] = 0
 		end
 		j = j + 1
-	end	
+	end
 	#p n
-	return false
+	return
 end

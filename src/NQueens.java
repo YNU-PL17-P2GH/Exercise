@@ -1,16 +1,14 @@
-import jnr.ffi.Struct.blkcnt_t;
-import jnr.ffi.Struct.int16_t;
 
 
 public class NQueens {
 	private int[][] direct = {{0, -1}, {1, -1},{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}};
 	private int[][] board;
 	private final int WIDTH = 8;
-	
+
 	private boolean failFlag = false;
 	private int[][] queenPlace;
 	private int queenCount;
-	
+
 	public NQueens(){
 		board = new int[WIDTH][WIDTH];
 		for(int i = 0; i < board.length; i++){
@@ -20,6 +18,14 @@ public class NQueens {
 		}
 		queenPlace = new int[WIDTH][2];
 		queenCount = 0;
+	}
+
+	public void boardClear(){
+		for(int i = 0; i < board.length; i++){
+			for(int j = 0; j < board[i].length; j++){
+				board[i][j] = 0;
+			}
+		}
 	}
 	
 	public void putQueen(int x, int y){
@@ -41,7 +47,7 @@ public class NQueens {
 				}
 				nx = nx + direct[i][0];
 				ny = ny + direct[i][1];
-				System.out.println(nx+" "+ ny);
+				//System.out.println(nx+" "+ ny);
 			}
 		}
 		board[y][x] = 1;
@@ -61,7 +67,7 @@ public class NQueens {
 	}
 
 	public void printResult() {
-		System.out.println();
+		System.out.println(!failFlag);
 		for(int i = 0; i < queenPlace.length; i++){
 			for(int j = 0; j < 2; j++){
 				System.out.print(queenPlace[i][j] + " ");
