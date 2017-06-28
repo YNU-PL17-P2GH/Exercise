@@ -19,8 +19,10 @@ public class ExerciseMain {
 		//ナップサック
 		//(new KnapsackMain()).knapsackMain(r);
 		//nクイーン
-		(new NQueensMain()).nQueenMain(r);
-
+		//(new NQueensMain()).nQueenMain(r);
+		//A*探索
+		(new LabyrinthMain()).labyrinthMain(r);
+		
 		//ハローワールド
 		//(new HelloRubyMain()).helloRubyMain(r);
 	}

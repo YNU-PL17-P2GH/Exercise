@@ -2,6 +2,7 @@
 
 public class Knapsack {
 	private int[][] item = {{168, 496}, {10, 45}, {145, 325}, {60, 347}, {10, 61}, {124, 486}, {124, 446}, {105, 22}, {126, 110}, {184, 475}};
+	private int[][] returnItem;	//itemがRuby側で書き換えられないようにするため
 	//1,4,5,6?
 	private int capacity = 300;
 
@@ -15,6 +16,7 @@ public class Knapsack {
 		for(int i = 0; i < selectItem.length; i++){
 			selectItem[i] = false;
 		}
+		returnItem = new int[item.length][item[0].length];
 	}
 
 	public int getCapacity(){
@@ -22,7 +24,9 @@ public class Knapsack {
 	}
 
 	public int[] getItem(int i){
-		return item[i];
+		returnItem[i][0] = item[i][0];
+		returnItem[i][1] = item[i][1];
+		return returnItem[i];
 	}
 
 	public int getItemNum(){
@@ -44,7 +48,7 @@ public class Knapsack {
 
 		selectItem[i] = true;
 	}
-	
+
 	public void printResult(){
 		System.out.println("正常終了:" + !failFlag);
 		int c = 0, v = 0;
