@@ -21,7 +21,9 @@ public class ExerciseMain {
 		//nクイーン
 		//(new NQueensMain()).nQueenMain(r);
 		//A*探索
-		(new LabyrinthMain()).labyrinthMain(r);
+		//(new LabyrinthMain()).labyrinthMain(r);
+		//最短経路
+		(new ShortestPathMain()).shortestPathMain(r);
 		
 		//ハローワールド
 		//(new HelloRubyMain()).helloRubyMain(r);

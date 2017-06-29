@@ -101,7 +101,6 @@ def pop(heap)
   Integer right = 10000
 
   while pos < heap.length
-
     if pos * 2 + 1 < heap.length then
       left = heap[pos * 2 + 1][2]
     else
@@ -129,6 +128,5 @@ def pop(heap)
       pos = pos * 2 + 2
     end
   end
-
   return result
 end
