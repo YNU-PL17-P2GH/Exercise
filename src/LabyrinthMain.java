@@ -10,7 +10,8 @@ public class LabyrinthMain {
 		System.out.println("迷路探索(A*)");
 		myLabyrinth .printMap();
 		container.callMethod(r.getCurrentContext(), "solve", myLabyrinth );
-		myLabyrinth .printMap();
+		myLabyrinth.printMap();
+		myLabyrinth.printResult();
 		//メソッドの未定義可
 		ExerciseMain.undefRubyMethods(container);
 	}

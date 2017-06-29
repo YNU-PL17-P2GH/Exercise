@@ -2,51 +2,46 @@ def solve(labyrinth)
   Array map = labyrinth.getMap()
   Array start = labyrinth.getStartPos()
   Array goal = labyrinth.getGoalPos()
-  map[start[1]][start[0]] = 'S'
-$Gmap = Array.new(map.length){Array.new(map[0].length, ' ')}
+  map[start[1]][start[0]] = 2           #スタート地点
   Array heap = []
   Array element = Array.new(3)
   element[0] = start[0]
   element[1] = start[1]
   element[2] = distance(goal, start[0], start[1])
   push(heap, element)
-  p solveSub(heap, map, goal)
-
-  Integer ii = 0
-  Integer jj = 0
-  while ii < map.length
-    jj = 0
-    while jj < map[0].length
-      print(map[ii][jj].chr("UTF-8"))
-      jj = jj + 1
+  if solveSub(heap, map, goal) then
+    Integer x = goal[0]
+    Integer y = goal[1]
+    Array result = []
+    while distance(start, x, y) != 0
+      result << [x, y]
+      if map[y][x] == 3 then
+        x = x - 1
+      elsif map[y][x] == 4 then
+        x = x + 1
+      elsif map[y][x] == 5 then
+        y = y - 1
+      elsif map[y][x] == 6 then
+        y = y + 1
+      end
     end
-    print("\n")
-    ii = ii + 1
-  end
-  
-ii = 0
-  jj = 0
-  while ii < map.length
-    jj = 0
-    while jj < map[0].length
-      print($Gmap[ii][jj])
-      jj = jj + 1
+    result << [x, y]
+    Integer i = result.length() - 1
+    while i >= 0
+      labyrinth.setResult(result[i][0], result[i][1])
+      i = i - 1
     end
-    print("\n")
-    ii = ii + 1
   end
-
 end
 
 def solveSub(heap, map, goal)
     Array direct = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-    Array directC = ['L', 'R', 'U', 'B']
+    Array directC = [3, 4, 5, 6]  #'L', 'R', 'U', 'B'
     Integer x = 0
     Integer y = 0
     Integer i = 0
     while heap.length != 0
       element = pop(heap)
-      $Gmap[element[1]][element[0]] = 'V'
       #p element
       i = 0
       while i  < direct.length
@@ -57,7 +52,7 @@ def solveSub(heap, map, goal)
           i = i + 1
           next
         end
-        if map[y][x] != 32 then
+        if map[y][x] != 0 then
           i = i + 1
           next
         end
@@ -72,13 +67,13 @@ def solveSub(heap, map, goal)
         push(heap, newElement)
         i = i + 1
       end
-      p heap
+      #p heap
     end
     return false
 end
 
-def distance(goal , x, y)
-  return ((goal[0] - x) * (goal[0] - x)  + (goal[1] - y) * (goal[1] - y))
+def distance(pos , x, y)
+  return ((pos[0] - x) * (pos[0] - x)  + (pos[1] - y) * (pos[1] - y))
 end
 
 def push(heap, values)
