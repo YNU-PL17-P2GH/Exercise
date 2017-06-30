@@ -10,7 +10,7 @@ public class ShortestPathMain {
 		System.out.println("最短経路問題");
 
 		container.callMethod(r.getCurrentContext(), "find", myShortestPath);
-
+		myShortestPath.printResult();
 		//メソッドの未定義可
 		ExerciseMain.undefRubyMethods(container);
 	}

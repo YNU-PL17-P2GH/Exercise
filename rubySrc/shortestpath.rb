@@ -9,7 +9,18 @@ def find(myShortestPath)
   edge[2] = 0
   push(heap, edge)
   findSub(myShortestPath, heap, goal, result)
-  p result
+  #p result
+  Integer node = goal
+  Array path = []
+  while node != start
+    path << [result[node][0], node]
+    node = result[node][0]
+  end
+  Integer i = path.length() - 1
+  while i >= 0
+    myShortestPath.selectPath(path[i][0], path[i][1])
+    i = i - 1
+  end
 end
 
 def findSub(myShortestPath, heap, goal, result)
@@ -30,7 +41,7 @@ def findSub(myShortestPath, heap, goal, result)
     end
 
     haveEdge = myShortestPath.getHavePath(edge[1])
-   
+
     Integer i = 0
     while i < haveEdge.length
       if result[haveEdge[i][0]][0] != nil then

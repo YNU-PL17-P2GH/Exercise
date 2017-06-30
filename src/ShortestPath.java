@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+
+
 
 public class ShortestPath {
 	private int[][] path ={{-1, 5, 4, 2,-1,-1},
@@ -8,7 +11,8 @@ public class ShortestPath {
 						   {-1, 6,-1,-1, 4,-1},};
 	private int start = 0;
 	private int goal = 5;
-
+	private ArrayList<Integer> resultFrom = new ArrayList<Integer>();
+	private ArrayList<Integer> resultTo = new ArrayList<Integer>();
 	public int[][] getHavePath(int node){
 		int c = 0;
 		int[][] allPath = new int[path[node].length][2];
@@ -42,5 +46,16 @@ public class ShortestPath {
 
 	public int getGoal() {
 		return goal;
+	}
+
+	public void selectPath(int from, int to){
+		resultFrom.add(from);
+		resultTo.add(to);
+	}
+
+	public void printResult(){
+		for(int i = 0; i < resultFrom.size(); i++){
+			System.out.println(resultFrom.get(i) + "->" + resultTo.get(i));
+		}
 	}
 }
